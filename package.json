@@ -1,0 +1,13 @@
+{
+  "name": "xiuxian-game",
+  "version": "1.0.0",
+  "description": "一个网页修仙游戏 MVP",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -c-1",
+    "dev": "npx live-server"
+  },
+  "keywords": ["game", "xiuxian", "web"],
+  "author": "",
+  "license": "MIT"
+}

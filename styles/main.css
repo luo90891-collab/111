@@ -1,0 +1,688 @@
+:root {
+  --primary-color: #00d4ff;
+  --secondary-color: #0f3460;
+  --accent-color: #e94560;
+  --success-color: #00ff88;
+  --warning-color: #ffaa00;
+  --danger-color: #ff3333;
+  --bg-dark: #0a0e27;
+  --bg-darker: #050812;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --border-color: #00d4ff44;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', monospace;
+  background: linear-gradient(135deg, var(--bg-darker) 0%, var(--secondary-color) 100%);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 容器 */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+}
+
+/* 屏幕 */
+.screen {
+  display: none;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 认证屏幕 */
+#authScreen {
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--bg-darker) 0%, var(--secondary-color) 100%);
+}
+
+.auth-container {
+  background: rgba(15, 52, 96, 0.8);
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.auth-title {
+  font-size: 28px;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 12px;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-group input {
+  background: rgba(10, 14, 39, 0.8);
+  border: 1px solid var(--primary-color);
+  color: var(--text-primary);
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+}
+
+.btn {
+  padding: 12px 20px;
+  border: 1px solid var(--primary-color);
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--primary-color);
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: rgba(0, 212, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+}
+
+.btn.primary {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background: rgba(233, 69, 96, 0.1);
+}
+
+.btn.primary:hover {
+  background: rgba(233, 69, 96, 0.3);
+  box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
+}
+
+.btn.success {
+  border-color: var(--success-color);
+  color: var(--success-color);
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.btn.success:hover {
+  background: rgba(0, 255, 136, 0.3);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+}
+
+.btn.danger {
+  border-color: var(--danger-color);
+  color: var(--danger-color);
+  background: rgba(255, 51, 51, 0.1);
+}
+
+.btn.danger:hover {
+  background: rgba(255, 51, 51, 0.3);
+  box-shadow: 0 0 15px rgba(255, 51, 51, 0.5);
+}
+
+.auth-toggle {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.auth-toggle button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: 'Courier New', monospace;
+}
+
+.error-msg {
+  color: var(--danger-color);
+  font-size: 12px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* 角色创建屏幕 */
+#characterScreen {
+  justify-content: center;
+  align-items: center;
+}
+
+.character-container {
+  background: rgba(15, 52, 96, 0.9);
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.character-title {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.character-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.school-select {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.school-option {
+  padding: 10px;
+  border: 2px solid var(--border-color);
+  background: rgba(10, 14, 39, 0.8);
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.school-option:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.school-option.selected {
+  border-color: var(--accent-color);
+  background: rgba(233, 69, 96, 0.2);
+  color: var(--accent-color);
+}
+
+/* 主游戏界面 */
+#mainScreen {
+  background: linear-gradient(135deg, var(--bg-darker) 0%, var(--secondary-color) 100%);
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.player-info {
+  flex: 1;
+}
+
+.player-name {
+  font-size: 18px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.player-level {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 5px;
+}
+
+.user-menu {
+  display: flex;
+  gap: 10px;
+}
+
+.user-menu button {
+  padding: 8px 15px;
+  font-size: 12px;
+}
+
+.game-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.panel {
+  background: rgba(15, 52, 96, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.panel-title {
+  font-size: 14px;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* 属性面板 */
+.stats-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+  font-size: 13px;
+}
+
+.stats-item:last-child {
+  border-bottom: none;
+}
+
+.stats-label {
+  color: var(--text-secondary);
+}
+
+.stats-value {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 212, 255, 0.1);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  transition: width 0.3s ease;
+}
+
+/* 修练系统 */
+.cultivation-btn {
+  width: 100%;
+  padding: 15px;
+  margin-top: 15px;
+  font-size: 14px;
+  border-color: var(--success-color);
+  color: var(--success-color);
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.cultivation-btn:hover {
+  background: rgba(0, 255, 136, 0.3);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+}
+
+.cultivation-btn.active {
+  background: rgba(0, 255, 136, 0.2);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.breakthrough-btn {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  font-size: 14px;
+  border-color: var(--warning-color);
+  color: var(--warning-color);
+  background: rgba(255, 170, 0, 0.1);
+}
+
+.breakthrough-btn:hover:not(:disabled) {
+  background: rgba(255, 170, 0, 0.3);
+  box-shadow: 0 0 15px rgba(255, 170, 0, 0.5);
+}
+
+.breakthrough-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 战斗系统 */
+.battle-arena {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 400px;
+}
+
+.enemy-display {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.enemy-name {
+  font-size: 16px;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.enemy-hp {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.enemy-hp-bar {
+  width: 200px;
+  height: 15px;
+  background: rgba(255, 51, 51, 0.2);
+  border: 1px solid var(--danger-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.enemy-hp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--danger-color), var(--warning-color));
+  transition: width 0.3s ease;
+}
+
+.battle-log {
+  background: rgba(10, 14, 39, 0.9);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 15px;
+  height: 200px;
+  overflow-y: auto;
+  margin: 20px 0;
+  font-size: 12px;
+}
+
+.log-entry {
+  margin-bottom: 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.log-entry:last-child {
+  border-bottom: none;
+}
+
+.log-damage {
+  color: var(--danger-color);
+}
+
+.log-heal {
+  color: var(--success-color);
+}
+
+.log-info {
+  color: var(--text-secondary);
+}
+
+.battle-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.battle-buttons button {
+  flex: 1;
+  max-width: 150px;
+}
+
+/* 任务系统 */
+.quest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.quest-item {
+  background: rgba(10, 14, 39, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quest-item:hover {
+  border-color: var(--primary-color);
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.quest-item.completed {
+  border-color: var(--success-color);
+  background: rgba(0, 255, 136, 0.05);
+}
+
+.quest-name {
+  font-size: 12px;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.quest-reward {
+  font-size: 11px;
+  color: var(--success-color);
+}
+
+/* 标签页 */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tab {
+  padding: 10px 15px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab:hover {
+  color: var(--primary-color);
+}
+
+.tab.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* 装备系统 */
+.equipment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.equipment-slot {
+  background: rgba(10, 14, 39, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+}
+
+.slot-name {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.equipment-item {
+  background: rgba(233, 69, 96, 0.1);
+  border: 1px solid var(--accent-color);
+  border-radius: 3px;
+  padding: 8px;
+  margin-bottom: 5px;
+}
+
+.item-quality-white { border-color: #cccccc; }
+.item-quality-blue { border-color: var(--primary-color); }
+.item-quality-purple { border-color: #bb86fc; }
+.item-quality-orange { border-color: var(--warning-color); }
+.item-quality-red { border-color: var(--danger-color); }
+
+.equipment-name {
+  font-size: 12px;
+  color: inherit;
+  font-weight: bold;
+}
+
+.equipment-attr {
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin-top: 3px;
+}
+
+/* 成就系统 */
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.achievement-item {
+  background: rgba(10, 14, 39, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.achievement-item.unlocked {
+  border-color: var(--success-color);
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.achievement-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.achievement-name {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.achievement-item.unlocked .achievement-name {
+  color: var(--success-color);
+}
+
+/* 响应式 */
+@media (max-width: 1200px) {
+  .game-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 212, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 212, 255, 0.5);
+}
